@@ -15,26 +15,22 @@ import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class Main_Frame extends JFrame {
+public class MainFrame extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField tf1;
-	private JTextField tf3;
-	private JTextField tf4;
-	private JTextField tf2;
+	private JTextField atmTextOne;
+	private JTextField atmTextThree;
+	private JTextField atmTextFour;
+	private JTextField atmTextTwo;
 	private static int temp = 0;
 	private String temp2 = "", temp3 = "";
-	private static double cash; 
 	private static JTextArea textReciept;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Main_Frame frame = new Main_Frame();
+					MainFrame frame = new MainFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,10 +39,8 @@ public class Main_Frame extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
-	public Main_Frame() {
+	public MainFrame() {
+		// Below Code Sets Properties of Frame 
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 870, 750);
@@ -62,257 +56,257 @@ public class Main_Frame extends JFrame {
 		panel.setBounds(0, 0, 870, 20);
 		contentPane.add(panel);
 		
-		JPanel Screen = new JPanel();
-		Screen.setBackground(new Color(153, 255, 153));
-		Screen.setBounds(75, 92, 285, 210);
-		contentPane.add(Screen);
-		Screen.setLayout(null);
+		JPanel atmScreen = new JPanel();
+		atmScreen.setBackground(new Color(153, 255, 153));
+		atmScreen.setBounds(75, 92, 285, 210);
+		contentPane.add(atmScreen);
+		atmScreen.setLayout(null);
 		
-		tf1 = new JTextField();
-		tf1.setEditable(false);
-		tf1.setBackground(new Color(153, 255, 153));
-		tf1.setBounds(73, 50, 142, 26);
-		tf1.setHorizontalAlignment(SwingConstants.CENTER);
-		tf1.setText("WELCOME");
-		Screen.add(tf1);
-		tf1.setColumns(10);
+		atmTextOne = new JTextField();
+		atmTextOne.setEditable(false);
+		atmTextOne.setBackground(new Color(153, 255, 153));
+		atmTextOne.setBounds(73, 50, 142, 26);
+		atmTextOne.setHorizontalAlignment(SwingConstants.CENTER);
+		atmTextOne.setText("WELCOME");
+		atmScreen.add(atmTextOne);
+		atmTextOne.setColumns(10);
 		
-		tf2 = new JTextField();
-		tf2.setEditable(false);
-		tf2.setBackground(new Color(153, 255, 153));
-		tf2.setHorizontalAlignment(SwingConstants.CENTER);
-		tf2.setText("TO");
-		tf2.setBounds(73, 77, 142, 26);
-		Screen.add(tf2);
-		tf2.setColumns(10);
+		atmTextTwo = new JTextField();
+		atmTextTwo.setEditable(false);
+		atmTextTwo.setBackground(new Color(153, 255, 153));
+		atmTextTwo.setHorizontalAlignment(SwingConstants.CENTER);
+		atmTextTwo.setText("TO");
+		atmTextTwo.setBounds(73, 77, 142, 26);
+		atmScreen.add(atmTextTwo);
+		atmTextTwo.setColumns(10);
 		
-		tf3 = new JTextField();
-		tf3.setEditable(false);
-		tf3.setBackground(new Color(153, 255, 153));
-		tf3.setHorizontalAlignment(SwingConstants.CENTER);
-		tf3.setBounds(73, 104, 142, 26);
-		tf3.setText("ATM SIMULATOR");
-		Screen.add(tf3);
-		tf3.setColumns(10);
+		atmTextThree = new JTextField();
+		atmTextThree.setEditable(false);
+		atmTextThree.setBackground(new Color(153, 255, 153));
+		atmTextThree.setHorizontalAlignment(SwingConstants.CENTER);
+		atmTextThree.setBounds(73, 104, 142, 26);
+		atmTextThree.setText("ATM SIMULATOR");
+		atmScreen.add(atmTextThree);
+		atmTextThree.setColumns(10);
 		
-		tf4 = new JTextField();
-		tf4.setEditable(false);
-		tf4.setBackground(new Color(153, 255, 153));
-		tf4.setHorizontalAlignment(SwingConstants.CENTER);
-		tf4.setBounds(73, 132, 142, 26);
-		tf4.setText("INSERT YOUR CARD");
-		Screen.add(tf4);
-		tf4.setColumns(10);
+		atmTextFour = new JTextField();
+		atmTextFour.setEditable(false);
+		atmTextFour.setBackground(new Color(153, 255, 153));
+		atmTextFour.setHorizontalAlignment(SwingConstants.CENTER);
+		atmTextFour.setBounds(73, 132, 142, 26);
+		atmTextFour.setText("INSERT YOUR CARD");
+		atmScreen.add(atmTextFour);
+		atmTextFour.setColumns(10);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setForeground(Color.WHITE);
-		panel_2.setBackground(new Color(70, 130, 180));
-		panel_2.setBounds(0, 708, 1018, 20);
-		contentPane.add(panel_2);
+		JPanel panel2 = new JPanel();
+		panel2.setForeground(Color.WHITE);
+		panel2.setBackground(new Color(70, 130, 180));
+		panel2.setBounds(0, 708, 1018, 20);
+		contentPane.add(panel2);
 		
-		JPanel keys = new JPanel();
-		keys.setBackground(new Color(51, 102, 153));
-		keys.setBounds(21, 375, 400, 310);
-		contentPane.add(keys);
-		keys.setLayout(new GridLayout(4, 4, 10, 10));
+		JPanel atmButtons = new JPanel();
+		atmButtons.setBackground(new Color(51, 102, 153));
+		atmButtons.setBounds(21, 375, 400, 310);
+		contentPane.add(atmButtons);
+		atmButtons.setLayout(new GridLayout(4, 4, 10, 10));
 		
-		JPanel k_1 = new JPanel();
-		k_1.addMouseListener(new MouseAdapter() {
+		JPanel button1 = new JPanel();
+		button1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				One();
 			}
 		});
-		k_1.setBackground(Color.LIGHT_GRAY);
-		k_1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		keys.add(k_1);
+		button1.setBackground(Color.LIGHT_GRAY);
+		button1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(button1);
 		
-		JLabel n_1 = new JLabel("1");
-		k_1.add(n_1);
+		JLabel num1 = new JLabel("1");
+		button1.add(num1);
 		
-		JPanel k_2 = new JPanel();
-		k_2.addMouseListener(new MouseAdapter() {
+		JPanel button2 = new JPanel();
+		button2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Two();
 			}
 		});
-		k_2.setBackground(Color.LIGHT_GRAY);
-		k_2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		keys.add(k_2);
+		button2.setBackground(Color.LIGHT_GRAY);
+		button2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(button2);
 		
-		JLabel n_2 = new JLabel("2");
-		k_2.add(n_2);
+		JLabel num2 = new JLabel("2");
+		button2.add(num2);
 		
-		JPanel k_3 = new JPanel();
-		k_3.addMouseListener(new MouseAdapter() {
+		JPanel button3 = new JPanel();
+		button3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Three();
 			}
 		});
-		k_3.setBackground(Color.LIGHT_GRAY);
-		k_3.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		keys.add(k_3);
+		button3.setBackground(Color.LIGHT_GRAY);
+		button3.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(button3);
 		
-		JLabel n_3 = new JLabel("3");
-		k_3.add(n_3);
+		JLabel num3 = new JLabel("3");
+		button3.add(num3);
 		
-		JPanel k_cancel = new JPanel();
-		k_cancel.addMouseListener(new MouseAdapter() {
+		JPanel buttoncancel = new JPanel();
+		buttoncancel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Cancel();
 				}
 		});
-		k_cancel.setBackground(new Color(204, 0, 0));
-		k_cancel.setForeground(new Color(255, 255, 255));
-		k_cancel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		keys.add(k_cancel);
+		buttoncancel.setBackground(new Color(204, 0, 0));
+		buttoncancel.setForeground(new Color(255, 255, 255));
+		buttoncancel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(buttoncancel);
 		
 		JLabel cancel = new JLabel("CANCEL");
-		k_cancel.add(cancel);
+		buttoncancel.add(cancel);
 		
-		JPanel k_4 = new JPanel();
-		k_4.addMouseListener(new MouseAdapter() {
+		JPanel button4 = new JPanel();
+		button4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Four();
 			}
 		});
-		k_4.setBackground(Color.LIGHT_GRAY);
-		k_4.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		keys.add(k_4);
+		button4.setBackground(Color.LIGHT_GRAY);
+		button4.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(button4);
 		
-		JLabel n_4 = new JLabel("4");
-		k_4.add(n_4);
+		JLabel num4 = new JLabel("4");
+		button4.add(num4);
 		
-		JPanel k_5 = new JPanel();
-		k_5.addMouseListener(new MouseAdapter() {
+		JPanel button5 = new JPanel();
+		button5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Five();
 			}
 		});
-		k_5.setBackground(Color.LIGHT_GRAY);
-		k_5.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		keys.add(k_5);
+		button5.setBackground(Color.LIGHT_GRAY);
+		button5.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(button5);
 		
-		JLabel n_5 = new JLabel("5");
-		k_5.add(n_5);
+		JLabel num5 = new JLabel("5");
+		button5.add(num5);
 		
-		JPanel k_6 = new JPanel();
-		k_6.addMouseListener(new MouseAdapter() {
+		JPanel button6 = new JPanel();
+		button6.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Six();
 			}
 		});
-		k_6.setBackground(Color.LIGHT_GRAY);
-		k_6.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		keys.add(k_6);
+		button6.setBackground(Color.LIGHT_GRAY);
+		button6.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(button6);
 		
-		JLabel n_6 = new JLabel("6");
-		k_6.add(n_6);
+		JLabel num6 = new JLabel("6");
+		button6.add(num6);
 		
-		JPanel k_clear = new JPanel();
-		k_clear.addMouseListener(new MouseAdapter() {
+		JPanel buttonclear = new JPanel();
+		buttonclear.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Clear();
 			}
 		});
-		k_clear.setBackground(new Color(255, 204, 51));
-		k_clear.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		keys.add(k_clear);
+		buttonclear.setBackground(new Color(255, 204, 51));
+		buttonclear.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(buttonclear);
 		
 		JLabel clear = new JLabel("CLEAR");
-		k_clear.add(clear);
+		buttonclear.add(clear);
 		
-		JPanel k_7 = new JPanel();
-		k_7.addMouseListener(new MouseAdapter() {
+		JPanel button7 = new JPanel();
+		button7.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Seven();
 			}
 		});
-		k_7.setBackground(Color.LIGHT_GRAY);
-		k_7.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		keys.add(k_7);
+		button7.setBackground(Color.LIGHT_GRAY);
+		button7.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(button7);
 		
-		JLabel n_7 = new JLabel("7");
-		k_7.add(n_7);
+		JLabel num7 = new JLabel("7");
+		button7.add(num7);
 		
-		JPanel k_8 = new JPanel();
-		k_8.addMouseListener(new MouseAdapter() {
+		JPanel button8 = new JPanel();
+		button8.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Eight();
 			}
 		});
-		k_8.setBackground(Color.LIGHT_GRAY);
-		k_8.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		keys.add(k_8);
+		button8.setBackground(Color.LIGHT_GRAY);
+		button8.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(button8);
 		
-		JLabel n_8 = new JLabel("8");
-		k_8.add(n_8);
+		JLabel num8 = new JLabel("8");
+		button8.add(num8);
 		
-		JPanel k_9 = new JPanel();
-		k_9.addMouseListener(new MouseAdapter() {
+		JPanel button9 = new JPanel();
+		button9.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Nine();
 			}
 		});
-		k_9.setBackground(Color.LIGHT_GRAY);
-		k_9.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		keys.add(k_9);
+		button9.setBackground(Color.LIGHT_GRAY);
+		button9.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(button9);
 		
-		JLabel n_9 = new JLabel("9");
-		k_9.add(n_9);
+		JLabel num9 = new JLabel("9");
+		button9.add(num9);
 		
-		JPanel k_enter = new JPanel();
-		k_enter.addMouseListener(new MouseAdapter() {
+		JPanel buttonenter = new JPanel();
+		buttonenter.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Enter();
 			}
 		});
-		k_enter.setBackground(new Color(51, 153, 51));
-		k_enter.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		keys.add(k_enter);
+		buttonenter.setBackground(new Color(51, 153, 51));
+		buttonenter.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(buttonenter);
 		
 		JLabel enter = new JLabel("ENTER");
-		k_enter.add(enter);
+		buttonenter.add(enter);
 		
 		JPanel b1 = new JPanel();
 		b1.setBackground(Color.LIGHT_GRAY);
 		b1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		keys.add(b1);
+		atmButtons.add(b1);
 		
-		JPanel k_0 = new JPanel();
-		k_0.addMouseListener(new MouseAdapter() {
+		JPanel button0 = new JPanel();
+		button0.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Zero();
 			}
 		});
-		k_0.setBackground(Color.LIGHT_GRAY);
-		k_0.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		keys.add(k_0);
+		button0.setBackground(Color.LIGHT_GRAY);
+		button0.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(button0);
 		
-		JLabel n_0 = new JLabel("0");
-		k_0.add(n_0);
+		JLabel num0 = new JLabel("0");
+		button0.add(num0);
 		
 		JPanel b2 = new JPanel();
 		b2.setBackground(Color.LIGHT_GRAY);
 		b2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		keys.add(b2);
+		atmButtons.add(b2);
 		
 		JPanel b3 = new JPanel();
 		b3.setBackground(Color.LIGHT_GRAY);
 		b3.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		keys.add(b3);
+		atmButtons.add(b3);
 		
 		JPanel p_reciept = new JPanel();
 		p_reciept.setBounds(444, 42, 400, 310);
@@ -369,8 +363,8 @@ public class Main_Frame extends JFrame {
 		cash_panel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Atm_Creation a = new Atm_Creation();
-				a.Cash -= temp;
+				AtmCreation a = new AtmCreation();
+				a.cash -= temp;
 				RecieptCheck();
 			}
 		});
@@ -383,8 +377,8 @@ public class Main_Frame extends JFrame {
 		cash_slot.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Atm_Creation a = new Atm_Creation();
-				a.Cash -= temp;
+				AtmCreation a = new AtmCreation();
+				a.cash -= temp;
 				RecieptCheck();
 			}
 		});
@@ -430,14 +424,14 @@ public class Main_Frame extends JFrame {
 		label_10.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(tf2.getText().equals("WITHDRAW CASH"))
+				if(atmTextTwo.getText().equals("WITHDRAW CASH"))
 				{
 					Withdraw();
 				}
 			}
 		});
 		label_10.setHorizontalAlignment(SwingConstants.LEFT);
-		label_10.setIcon(new ImageIcon(Main_Frame.class.getResource("/img/arrow4.jpg")));
+		label_10.setIcon(new ImageIcon(MainFrame.class.getResource("/img/arrow4.jpg")));
 		p1.add(label_10);
 		
 		JPanel p2 = new JPanel();
@@ -453,7 +447,7 @@ public class Main_Frame extends JFrame {
 			}
 		});
 		label_11.setHorizontalAlignment(SwingConstants.LEFT);
-		label_11.setIcon(new ImageIcon(Main_Frame.class.getResource("/img/arrow4.jpg")));
+		label_11.setIcon(new ImageIcon(MainFrame.class.getResource("/img/arrow4.jpg")));
 		p2.add(label_11);
 		
 		JPanel p3 = new JPanel();
@@ -468,7 +462,7 @@ public class Main_Frame extends JFrame {
 				RecieptCheck();
 			}
 		});
-		label_12.setIcon(new ImageIcon(Main_Frame.class.getResource("/img/arrow3.jpg")));
+		label_12.setIcon(new ImageIcon(MainFrame.class.getResource("/img/arrow3.jpg")));
 		p3.add(label_12);
 		
 		JPanel p4 = new JPanel();
@@ -484,272 +478,278 @@ public class Main_Frame extends JFrame {
 			}
 		});
 		label_13.setBackground(new Color(0, 102, 153));
-		label_13.setIcon(new ImageIcon(Main_Frame.class.getResource("/img/arrow3.jpg")));
+		label_13.setIcon(new ImageIcon(MainFrame.class.getResource("/img/arrow3.jpg")));
 		p4.add(label_13);
 	}
 	
 	public void Inserted() throws InterruptedException {
-		if(tf4.getText().equals("INSERT YOUR CARD")) {
-			tf1.setText("");
-			tf2.setText("ENTER YOUR PIN");
-			tf3.setText("");
-			tf4.setText("");
+		if(atmTextFour.getText().equals("INSERT YOUR CARD")) {
+			atmTextOne.setText("");
+			atmTextTwo.setText("ENTER YOUR PIN");
+			atmTextThree.setText("");
+			atmTextFour.setText("");
 		} else { System.out.println("error"); }
 	}
 	
 	public void RecieptCheck() {
-		if(tf1.getText().equals("CHECK BALANCE")) {
-			tf1.setBounds(73, 50, 142, 26);
-			tf1.setText("TO CHECK YOUR");
-			tf2.setText("BALANCE TAKE");
-			tf2.setBounds(73, 77, 142, 26);
-			tf3.setBounds(73, 104, 142, 26);
-			tf3.setText("YOUR RECIEPT");
-			tf4.setBounds(73, 132, 142, 26);
-			tf4.setText("THANK YOU");
+		if(atmTextOne.getText().equals("CHECK BALANCE")) {
+			atmTextOne.setBounds(73, 50, 142, 26);
+			atmTextOne.setText("TO CHECK YOUR");
+			atmTextTwo.setText("BALANCE TAKE");
+			atmTextTwo.setBounds(73, 77, 142, 26);
+			atmTextThree.setBounds(73, 104, 142, 26);
+			atmTextThree.setText("YOUR RECIEPT");
+			atmTextFour.setBounds(73, 132, 142, 26);
+			atmTextFour.setText("THANK YOU");
 		}
 		
-		if(tf2.getText().equals("TAKE YOUR")) {
-			tf1.setBounds(73, 50, 142, 26);
-			tf1.setText("YOUR BALANCE");
-			tf2.setText("IS UPDATED");
-			tf2.setBounds(73, 77, 142, 26);
-			tf3.setBounds(73, 104, 142, 26);
-			tf3.setText("CHECK RECIEPT");
-			tf4.setBounds(73, 132, 142, 26);
-			tf4.setText("THANK YOU");
+		if(atmTextTwo.getText().equals("TAKE YOUR")) {
+			atmTextOne.setBounds(73, 50, 142, 26);
+			atmTextOne.setText("YOUR BALANCE");
+			atmTextTwo.setText("IS UPDATED");
+			atmTextTwo.setBounds(73, 77, 142, 26);
+			atmTextThree.setBounds(73, 104, 142, 26);
+			atmTextThree.setText("CHECK RECIEPT");
+			atmTextFour.setBounds(73, 132, 142, 26);
+			atmTextFour.setText("THANK YOU");
 		}
 	}
 	
 	public void Enter() {
-		Atm_Creation a = new Atm_Creation();
+		AtmCreation a = new AtmCreation();
 		
-		if(tf2.getText().equals("ENTER NEW PIN")) {
-			temp3 = tf3.getText();
-			if(a.PIN_Number.equals(temp3)) {
-				tf1.setText("YOU HAVE");
-				tf2.setText("ENTERED OLD PIN");
-				tf3.setText("RETURNING TO ");
-				tf4.setText("ATM HOME");
+		if(atmTextTwo.getText().equals("ENTER NEW PIN")) {
+			temp3 = atmTextThree.getText();
+			if(a.pinNumber.equals(temp3)) {
+				atmTextOne.setText("YOU HAVE");
+				atmTextTwo.setText("ENTERED OLD PIN");
+				atmTextThree.setText("RETURNING TO ");
+				atmTextFour.setText("ATM HOME");
 			} 
 			else if(temp3.length()==4) {	
-				a.PIN_Number = temp3;
-				tf1.setText("YOUR PIN");
-				tf2.setText("IS CHANGED");
-				tf3.setText("SUCCESSFULLY");
-				tf4.setText("THANK YOU");
+				a.pinNumber = temp3;
+				atmTextOne.setText("YOUR PIN");
+				atmTextTwo.setText("IS CHANGED");
+				atmTextThree.setText("SUCCESSFULLY");
+				atmTextFour.setText("THANK YOU");
 			} 
 			else { System.out.println("Error"); }
 		}
 		
-		if(tf2.getText().equals("ENTER YOUR PIN")) 
+		if(atmTextTwo.getText().equals("ENTER YOUR PIN")) 
 		{	
-			temp2 = tf3.getText();
-			if(a.PIN_Number.equals(temp2)) {
+			temp2 = atmTextThree.getText();
+			if(a.pinNumber.equals(temp2)) {
 				CorrectPin();
 			} else {
-				tf1.setText("YOU'VE ENTERED");
-				tf2.setText("INCORRECT");
-				tf3.setText("PIN RETURNING");
-				tf4.setText("TO ATM HOME");
+				atmTextOne.setText("YOU'VE ENTERED");
+				atmTextTwo.setText("INCORRECT");
+				atmTextThree.setText("PIN RETURNING");
+				atmTextFour.setText("TO ATM HOME");
 			}
 		}
 		
-		if(tf2.getText().equals("ENTER AMOUNT")) {
-			temp = Integer.parseInt(tf3.getText());
-			if(Integer.parseInt(tf3.getText()) > 99) {
-				if(Integer.parseInt(tf3.getText()) <= a.Cash) {
-					if(Integer.parseInt(tf3.getText()) % 100 == 0) {	
-						tf1.setText("THANK YOU");
-						tf1.setBounds(73, 50, 142, 26);
-						tf2.setText("TAKE YOUR");
-						tf3.setText("CASH FROM");
-						tf2.setBounds(73, 77, 142, 26);
-						tf3.setBounds(73, 104, 142, 26);
-						tf4.setText("BELOW");
-						tf4.setBounds(73, 132, 142, 26);
+		if(atmTextTwo.getText().equals("ENTER AMOUNT")) {
+			temp = Integer.parseInt(atmTextThree.getText());
+			if(Integer.parseInt(atmTextThree.getText()) > 99) {
+				if(Integer.parseInt(atmTextThree.getText()) <= a.cash) {
+					if(Integer.parseInt(atmTextThree.getText()) % 100 == 0) {	
+						atmTextOne.setText("THANK YOU");
+						atmTextOne.setBounds(73, 50, 142, 26);
+						atmTextTwo.setText("TAKE YOUR");
+						atmTextThree.setText("CASH FROM");
+						atmTextTwo.setBounds(73, 77, 142, 26);
+						atmTextThree.setBounds(73, 104, 142, 26);
+						atmTextFour.setText("BELOW");
+						atmTextFour.setBounds(73, 132, 142, 26);
 					} else {
-						tf1.setText("THIS ATM");
-						tf2.setText("ONLY SUPPORTS");
-						tf3.setText("AMMOUNT MULTIPLE");
-						tf4.setText("OF 100S"); 
+						atmTextOne.setText("THIS ATM");
+						atmTextTwo.setText("ONLY SUPPORTS");
+						atmTextThree.setText("AMMOUNT MULTIPLE");
+						atmTextFour.setText("OF 100S"); 
 					}
 				} else {
-					tf1.setText("AMOUNT ENTERED");
-					tf2.setText("IS GREATER");
-					tf3.setText("THAN AMOUNT");
-					tf4.setText("IN ACCOUNT");
+					atmTextOne.setText("AMOUNT ENTERED");
+					atmTextTwo.setText("IS GREATER");
+					atmTextThree.setText("THAN AMOUNT");
+					atmTextFour.setText("IN ACCOUNT");
 				}
 			} else {
-				tf1.setText("YOU HAVE ENTERED"); 
-				tf2.setText("WRONG AMOUNT");
-				tf3.setText("RETURNING"); 
-				tf4.setText("ATM HOME");
+				atmTextOne.setText("YOU HAVE ENTERED"); 
+				atmTextTwo.setText("WRONG AMOUNT");
+				atmTextThree.setText("RETURNING"); 
+				atmTextFour.setText("ATM HOME");
 			}
 		}
 	}
 	
 	public void CorrectPin()
 	{
-		tf1.setBounds(0, 45, 142, 26);
-		tf1.setText("CHECK BALANCE");
+		atmTextOne.setBounds(0, 45, 142, 26);
+		atmTextOne.setText("CHECK BALANCE");
 		
-		tf2.setBounds(143, 44, 142, 26);
-		tf2.setText("WITHDRAW CASH");
+		atmTextTwo.setBounds(143, 44, 142, 26);
+		atmTextTwo.setText("WITHDRAW CASH");
 		
-		tf3.setText("CHANGE PIN");
-		tf3.setBounds(0, 138, 142, 26);
-		tf3.setEditable(false);
+		atmTextThree.setText("CHANGE PIN");
+		atmTextThree.setBounds(0, 138, 142, 26);
+		atmTextThree.setEditable(false);
 		
-		tf4.setText("LOG OUT");
-		tf4.setBounds(143, 138, 142, 26);
+		atmTextFour.setText("LOG OUT");
+		atmTextFour.setBounds(143, 138, 142, 26);
 	}
 			
 	public void One() {
-		if(tf2.getText().equals("ENTER YOUR PIN")||tf2.getText().equals("ENTER AMOUNT")||tf2.getText().equals("ENTER NEW PIN")) {
-			tf3.setText(tf3.getText()+"1");
+		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")) {
+			atmTextThree.setText(atmTextThree.getText()+"1");
 		}
 	}
 	
 	public void Two() {
-		if(tf2.getText().equals("ENTER YOUR PIN")||tf2.getText().equals("ENTER AMOUNT")||tf2.getText().equals("ENTER NEW PIN")) {
-			tf3.setText(tf3.getText()+"2");
+		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")) {
+			atmTextThree.setText(atmTextThree.getText()+"2");
 		}
 	}
 	
 	public void Three() {
-		if(tf2.getText().equals("ENTER YOUR PIN")||tf2.getText().equals("ENTER AMOUNT")||tf2.getText().equals("ENTER NEW PIN")) {
-			tf3.setText(tf3.getText()+"3");
+		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")) {
+			atmTextThree.setText(atmTextThree.getText()+"3");
 		}
 	}
 	
 	public void Four() {
-		if(tf2.getText().equals("ENTER YOUR PIN")||tf2.getText().equals("ENTER AMOUNT")||tf2.getText().equals("ENTER NEW PIN")) {
-			tf3.setText(tf3.getText()+"4");
+		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")) {
+			atmTextThree.setText(atmTextThree.getText()+"4");
 		}	
 	}
 	
 	public void Five() {
-		if(tf2.getText().equals("ENTER YOUR PIN")||tf2.getText().equals("ENTER AMOUNT")||tf2.getText().equals("ENTER NEW PIN")) {
-			tf3.setText(tf3.getText()+"5");
+		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")) {
+			atmTextThree.setText(atmTextThree.getText()+"5");
 		}	
 	}
 	
 	public void Six() {
-		if(tf2.getText().equals("ENTER YOUR PIN")||tf2.getText().equals("ENTER AMOUNT")||tf2.getText().equals("ENTER NEW PIN")) {
-			tf3.setText(tf3.getText()+"6");
+		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")) {
+			atmTextThree.setText(atmTextThree.getText()+"6");
 		}
 	}
 	
 	public void Seven() 
 	{
-		if(tf2.getText().equals("ENTER YOUR PIN")||tf2.getText().equals("ENTER AMOUNT")||tf2.getText().equals("ENTER NEW PIN"))
+		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN"))
 		{
-			tf3.setText(tf3.getText()+"7");
+			atmTextThree.setText(atmTextThree.getText()+"7");
 		}
 	}
 	
 	public void Eight() 
 	{
-		if(tf2.getText().equals("ENTER YOUR PIN")||tf2.getText().equals("ENTER AMOUNT")||tf2.getText().equals("ENTER NEW PIN"))
+		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN"))
 		{
-			tf3.setText(tf3.getText()+"8");
+			atmTextThree.setText(atmTextThree.getText()+"8");
 		}
 	}
 	
 	public void Nine() 
 	{
-		if(tf2.getText().equals("ENTER YOUR PIN")||tf2.getText().equals("ENTER AMOUNT")||tf2.getText().equals("ENTER NEW PIN"))
+		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN"))
 		{
-			tf3.setText(tf3.getText()+"9");
+			atmTextThree.setText(atmTextThree.getText()+"9");
 		}
 	}
 	
 	public void Zero() 
 	{
-		if(tf2.getText().equals("ENTER YOUR PIN")||tf2.getText().equals("ENTER AMOUNT")||tf2.getText().equals("ENTER NEW PIN"))
+		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN"))
 		{
-			tf3.setText(tf3.getText()+"0");
+			atmTextThree.setText(atmTextThree.getText()+"0");
 		}
 	}
 	
 	public void Clear() 
 	{
 		
-		if(tf2.getText().equals("ENTER YOUR PIN")||tf2.getText().equals("ENTER AMOUNT")||tf2.getText().equals("ENTER NEW PIN"))
+		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN"))
 		{
-			tf3.setText(tf3.getText().substring(0, tf3.getText().length()-1));
+			atmTextThree.setText(atmTextThree.getText().substring(0, atmTextThree.getText().length()-1));
 		}
 	}
 	
 	public void Withdraw() {
-		Atm_Creation a = new Atm_Creation();
-		if(a.Cash > 99) {
-			tf1.setText("");
-			tf1.setBounds(73, 50, 142, 26);
-			tf2.setText("ENTER AMOUNT");
-			tf3.setText("");
-			tf2.setBounds(73, 77, 142, 26);
-			tf3.setBounds(73, 104, 142, 26);
-			tf4.setText("");
-			tf4.setBounds(73, 132, 142, 26);
+		AtmCreation a = new AtmCreation();
+		if(a.cash > 99) {
+			atmTextOne.setText("");
+			atmTextOne.setBounds(73, 50, 142, 26);
+			atmTextTwo.setText("ENTER AMOUNT");
+			atmTextThree.setText("");
+			atmTextTwo.setBounds(73, 77, 142, 26);
+			atmTextThree.setBounds(73, 104, 142, 26);
+			atmTextFour.setText("");
+			atmTextFour.setBounds(73, 132, 142, 26);
 		} 
 		else { System.out.println("ERROR");}
 	}
 	
+	//Below Code Resets ATM To Initialize
 	public void Cancel() {
-		tf1.setBounds(73, 50, 142, 26);
-		tf1.setText("WELCOME");
-		tf2.setText("TO");
-		tf2.setBounds(73, 77, 142, 26);
-		tf3.setBounds(73, 104, 142, 26);
-		tf3.setText("ATM SIMULATOR");
-		tf4.setBounds(73, 132, 142, 26);
-		tf4.setText("INSERT YOUR CARD");
+		atmTextOne.setBounds(73, 50, 142, 26);
+		atmTextOne.setText("WELCOME");
+		atmTextTwo.setText("TO");
+		atmTextTwo.setBounds(73, 77, 142, 26);
+		atmTextThree.setBounds(73, 104, 142, 26);
+		atmTextThree.setText("ATM SIMULATOR");
+		atmTextFour.setBounds(73, 132, 142, 26);
+		atmTextFour.setText("INSERT YOUR CARD");
 		textReciept.setText("\n -------------------- RECIEPT ---------------------- "
 				+ "\n -------------------------------------------------");
 	}
 	
+	//	Below Code Generates Reciept
 	public void TakeReciept() {
-		Atm_Creation a = new Atm_Creation();
-		if(tf2.getText().equals("BALANCE TAKE")) {
-			String prino = a.Card_Number.substring(0 , a.Card_Number.length()-9); 
+		AtmCreation a = new AtmCreation();
+		
+		//	Code to Generate Reciept for Checking Balance
+		if(atmTextTwo.getText().equals("BALANCE TAKE")) {
+			String prino = a.cardNumber.substring(0 , a.cardNumber.length()-9); 
 			
 			textReciept.setText("\n"
 				+ " -------------------- RECIEPT ---------------------- \n"
 				+ " ------------------------------------------------- \n"
 				+ " \n"
 				+ " THANKS FOR USING THIS SERVICE \n"
-				+ " "+ a.Holder_Name.toUpperCase() +"\n"
+				+ " "+ a.accHolderName.toUpperCase() +"\n"
 				+ " BALANCE OF ACC NO. "+prino+"X XXXX XXXX XXXX \n"
-				+ " IS "+a.Cash+"");
+				+ " IS "+a.cash+"");
 		}
 		
-		if(tf2.getText().equals("IS UPDATED")) {
-			String prino = a.Card_Number.substring(0 , a.Card_Number.length()-9); 
+		//	Code to Generate Reciept for Checking Debited Money
+		if(atmTextTwo.getText().equals("IS UPDATED")) {
+			String prino = a.cardNumber.substring(0 , a.cardNumber.length()-9); 
+			
 			textReciept.setText("\n"
 				+ " -------------------- RECIEPT ---------------------- \n"
 				+ " ------------------------------------------------- \n"
 				+ " \n"
 				+ " THANKS FOR USING THIS SERVICE \n"
-				+ " "+ a.Holder_Name.toUpperCase() +"\n"
+				+ " "+ a.accHolderName.toUpperCase() +"\n"
 				+ " "+ temp +" HAS BEEN DEBITED FROM YOUR ACCOUNT \n"
 				+ " BALANCE OF ACC NO. "+prino+"X XXXX XXXX XXXX \n"
-				+ " IS "+a.Cash+"");
+				+ " IS "+a.cash+"");
 		}
 	}
-	
+	 
+	//	Below Code to Changes Pin
 	public void ChangePin() {
-		if(tf3.getText().equals("CHANGE PIN")) 
-		{
-			tf1.setText("");
-			tf1.setBounds(73, 50, 142, 26);
-			tf2.setText("ENTER NEW PIN");
-			tf3.setText("");
-			tf2.setBounds(73, 77, 142, 26);
-			tf3.setBounds(73, 104, 142, 26);
-			tf4.setText("");
-			tf4.setBounds(73, 132, 142, 26);
+		if(atmTextThree.getText().equals("CHANGE PIN")) {
+			atmTextOne.setText("");
+			atmTextOne.setBounds(73, 50, 142, 26);
+			atmTextTwo.setText("ENTER NEW PIN");
+			atmTextThree.setText("");
+			atmTextTwo.setBounds(73, 77, 142, 26);
+			atmTextThree.setBounds(73, 104, 142, 26);
+			atmTextFour.setText("");
+			atmTextFour.setBounds(73, 132, 142, 26);
 		}
 	}
 }
