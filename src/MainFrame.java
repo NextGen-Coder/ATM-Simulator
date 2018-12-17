@@ -49,19 +49,27 @@ public class MainFrame extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setTitle("ATM SIMULATOR");
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(70, 130, 180));
-		panel.setForeground(new Color(255, 255, 255));
-		panel.setBounds(0, 0, 870, 20);
-		contentPane.add(panel);
+		// Below Code is used to create designPanel1 panel which is only used for design purpose
+		JPanel designPanel1 = new JPanel();
+		designPanel1.setBackground(new Color(70, 130, 180));
+		designPanel1.setForeground(new Color(255, 255, 255));
+		designPanel1.setBounds(0, 0, 870, 20);
+		contentPane.add(designPanel1);
 		
+		// Below Code is used to create atmScreen panel which is basic output screen of atm
 		JPanel atmScreen = new JPanel();
 		atmScreen.setBackground(new Color(153, 255, 153));
 		atmScreen.setBounds(75, 92, 285, 210);
 		contentPane.add(atmScreen);
 		atmScreen.setLayout(null);
 		
+		/* 	Below Code creates four textfields 
+		 * 	atmTextOne, atmTextTwo, atmTextThree and atmTextFour
+		 * 	and adds them to center of the atmScreen panel
+		 * 	which shows of most of the atm functionalities
+		 */	
 		atmTextOne = new JTextField();
 		atmTextOne.setEditable(false);
 		atmTextOne.setBackground(new Color(153, 255, 153));
@@ -98,269 +106,365 @@ public class MainFrame extends JFrame {
 		atmScreen.add(atmTextFour);
 		atmTextFour.setColumns(10);
 		
-		JPanel panel2 = new JPanel();
-		panel2.setForeground(Color.WHITE);
-		panel2.setBackground(new Color(70, 130, 180));
-		panel2.setBounds(0, 708, 1018, 20);
-		contentPane.add(panel2);
+		// Below Code is used to create designPanel2 panel which is only used for design purpose
+		JPanel designPanel2 = new JPanel();
+		designPanel2.setForeground(Color.WHITE);
+		designPanel2.setBackground(new Color(70, 130, 180));
+		designPanel2.setBounds(0, 708, 1018, 20);
+		contentPane.add(designPanel2);
 		
+		/* Below Code is used to create atmButtons panel which 
+		 * contains Numeric, Cancel, Clear and Enter buttons of atm
+		 */
 		JPanel atmButtons = new JPanel();
 		atmButtons.setBackground(new Color(51, 102, 153));
 		atmButtons.setBounds(21, 375, 400, 310);
 		contentPane.add(atmButtons);
 		atmButtons.setLayout(new GridLayout(4, 4, 10, 10));
 		
-		JPanel button1 = new JPanel();
-		button1.addMouseListener(new MouseAdapter() {
+		/* 	Below Code creates ButtonOne which performs
+		 *  functionalites when mouse Clicks it.
+		 */
+		JPanel buttonOne = new JPanel();
+		buttonOne.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				One();
+				if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")) {
+					atmTextThree.setText(atmTextThree.getText()+"1");
+				}
 			}
 		});
-		button1.setBackground(Color.LIGHT_GRAY);
-		button1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		atmButtons.add(button1);
+		buttonOne.setBackground(Color.LIGHT_GRAY);
+		buttonOne.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(buttonOne);
 		
 		JLabel num1 = new JLabel("1");
-		button1.add(num1);
+		buttonOne.add(num1);
 		
-		JPanel button2 = new JPanel();
-		button2.addMouseListener(new MouseAdapter() {
+		/* 	Below Code creates ButtonTwo which performs
+		 *  functionalites when mouse Clicks it.
+		 */
+		JPanel buttonTwo = new JPanel();
+		buttonTwo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Two();
+				if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")) {
+					atmTextThree.setText(atmTextThree.getText()+"2");
+				}
 			}
 		});
-		button2.setBackground(Color.LIGHT_GRAY);
-		button2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		atmButtons.add(button2);
+		buttonTwo.setBackground(Color.LIGHT_GRAY);
+		buttonTwo.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(buttonTwo);
 		
 		JLabel num2 = new JLabel("2");
-		button2.add(num2);
+		buttonTwo.add(num2);
 		
-		JPanel button3 = new JPanel();
-		button3.addMouseListener(new MouseAdapter() {
+		/* 	Below Code creates ButtonThree which performs
+		 *  functionalites when mouse Clicks it.
+		 */
+		JPanel buttonThree = new JPanel();
+		buttonThree.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Three();
+				if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")) {
+					atmTextThree.setText(atmTextThree.getText()+"3");
+				}
 			}
 		});
-		button3.setBackground(Color.LIGHT_GRAY);
-		button3.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		atmButtons.add(button3);
-		
+		buttonThree.setBackground(Color.LIGHT_GRAY);
+		buttonThree.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(buttonThree);
+
 		JLabel num3 = new JLabel("3");
-		button3.add(num3);
+		buttonThree.add(num3);
 		
-		JPanel buttoncancel = new JPanel();
-		buttoncancel.addMouseListener(new MouseAdapter() {
+		//	Below Code Resets Atm Screen to default 
+		JPanel buttonCancel = new JPanel();
+		buttonCancel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Cancel();
-				}
+				atmTextOne.setBounds(73, 50, 142, 26);
+				atmTextOne.setText("WELCOME");
+				atmTextTwo.setText("TO");
+				atmTextTwo.setBounds(73, 77, 142, 26);
+				atmTextThree.setBounds(73, 104, 142, 26);
+				atmTextThree.setText("ATM SIMULATOR");
+				atmTextFour.setBounds(73, 132, 142, 26);
+				atmTextFour.setText("INSERT YOUR CARD");
+				textReciept.setText("\n -------------------- RECIEPT ---------------------- "
+						+ "\n -------------------------------------------------");
+			}
 		});
-		buttoncancel.setBackground(new Color(204, 0, 0));
-		buttoncancel.setForeground(new Color(255, 255, 255));
-		buttoncancel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		atmButtons.add(buttoncancel);
+		buttonCancel.setBackground(new Color(204, 0, 0));
+		buttonCancel.setForeground(new Color(255, 255, 255));
+		buttonCancel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(buttonCancel);
 		
 		JLabel cancel = new JLabel("CANCEL");
-		buttoncancel.add(cancel);
+		buttonCancel.add(cancel);
 		
-		JPanel button4 = new JPanel();
-		button4.addMouseListener(new MouseAdapter() {
+		/* 	Below Code creates ButtonFour which performs
+		 *  functionalites when mouse Clicks it.
+		 */
+		JPanel buttonFour = new JPanel();
+		buttonFour.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Four();
+				if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")) {
+					atmTextThree.setText(atmTextThree.getText()+"4");
+				}
 			}
 		});
-		button4.setBackground(Color.LIGHT_GRAY);
-		button4.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		atmButtons.add(button4);
+		buttonFour.setBackground(Color.LIGHT_GRAY);
+		buttonFour.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(buttonFour);
 		
 		JLabel num4 = new JLabel("4");
-		button4.add(num4);
+		buttonFour.add(num4);
 		
-		JPanel button5 = new JPanel();
-		button5.addMouseListener(new MouseAdapter() {
+		/* 	Below Code creates ButtonFive which performs
+		 *  functionalites when mouse Clicks it.
+		 */
+		JPanel buttonFive = new JPanel();
+		buttonFive.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Five();
+				if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")) {
+					atmTextThree.setText(atmTextThree.getText()+"5");
+				}
 			}
 		});
-		button5.setBackground(Color.LIGHT_GRAY);
-		button5.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		atmButtons.add(button5);
+		buttonFive.setBackground(Color.LIGHT_GRAY);
+		buttonFive.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(buttonFive);
 		
 		JLabel num5 = new JLabel("5");
-		button5.add(num5);
+		buttonFive.add(num5);
 		
-		JPanel button6 = new JPanel();
-		button6.addMouseListener(new MouseAdapter() {
+		/* 	Below Code creates ButtonSix which performs
+		 *  functionalites when mouse Clicks it.
+		 */
+		JPanel buttonSix = new JPanel();
+		buttonSix.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Six();
+				if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")) {
+					atmTextThree.setText(atmTextThree.getText()+"6");
+				}
 			}
 		});
-		button6.setBackground(Color.LIGHT_GRAY);
-		button6.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		atmButtons.add(button6);
+		buttonSix.setBackground(Color.LIGHT_GRAY);
+		buttonSix.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(buttonSix);
 		
 		JLabel num6 = new JLabel("6");
-		button6.add(num6);
+		buttonSix.add(num6);
 		
-		JPanel buttonclear = new JPanel();
-		buttonclear.addMouseListener(new MouseAdapter() {
+		/* 	Below Code creates ButtonClear which clears
+		 *  one character in atm screen when mouse Clicks it.
+		 */
+		JPanel buttonClear = new JPanel();
+		buttonClear.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Clear();
+				if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")){
+					atmTextThree.setText(atmTextThree.getText().substring(0, atmTextThree.getText().length()-1));
+				}
 			}
 		});
-		buttonclear.setBackground(new Color(255, 204, 51));
-		buttonclear.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		atmButtons.add(buttonclear);
+		buttonClear.setBackground(new Color(255, 204, 51));
+		buttonClear.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(buttonClear);
 		
 		JLabel clear = new JLabel("CLEAR");
-		buttonclear.add(clear);
+		buttonClear.add(clear);
 		
-		JPanel button7 = new JPanel();
-		button7.addMouseListener(new MouseAdapter() {
+		/* 	Below Code creates ButtonSeven which performs
+		 *  functionalites when mouse Clicks it.
+		 */
+		JPanel buttonSeven = new JPanel();
+		buttonSeven.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Seven();
+				if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")){
+					atmTextThree.setText(atmTextThree.getText()+"7");
+				}
 			}
 		});
-		button7.setBackground(Color.LIGHT_GRAY);
-		button7.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		atmButtons.add(button7);
+		buttonSeven.setBackground(Color.LIGHT_GRAY);
+		buttonSeven.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(buttonSeven);
 		
 		JLabel num7 = new JLabel("7");
-		button7.add(num7);
+		buttonSeven.add(num7);
 		
-		JPanel button8 = new JPanel();
-		button8.addMouseListener(new MouseAdapter() {
+		/* 	Below Code creates ButtonEight which performs
+		 *  functionalites when mouse Clicks it.
+		 */
+		JPanel buttonEight = new JPanel();
+		buttonEight.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Eight();
+				if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")){
+					atmTextThree.setText(atmTextThree.getText()+"8");
+				}
 			}
 		});
-		button8.setBackground(Color.LIGHT_GRAY);
-		button8.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		atmButtons.add(button8);
+		buttonEight.setBackground(Color.LIGHT_GRAY);
+		buttonEight.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(buttonEight);
 		
 		JLabel num8 = new JLabel("8");
-		button8.add(num8);
+		buttonEight.add(num8);
 		
-		JPanel button9 = new JPanel();
-		button9.addMouseListener(new MouseAdapter() {
+		/* 	Below Code creates ButtonNine which performs
+		 *  functionalites when mouse Clicks it.
+		 */
+		JPanel buttonNine = new JPanel();
+		buttonNine.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Nine();
+				if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")){
+					atmTextThree.setText(atmTextThree.getText()+"9");
+				}
 			}
 		});
-		button9.setBackground(Color.LIGHT_GRAY);
-		button9.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		atmButtons.add(button9);
+		buttonNine.setBackground(Color.LIGHT_GRAY);
+		buttonNine.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(buttonNine);
 		
 		JLabel num9 = new JLabel("9");
-		button9.add(num9);
+		buttonNine.add(num9);
 		
-		JPanel buttonenter = new JPanel();
-		buttonenter.addMouseListener(new MouseAdapter() {
+		/* 	Below Code creates ButtonEnter which is
+		 *  which performs Enter() function when mouse clicks it.
+		 */
+		JPanel buttonEnter = new JPanel();
+		buttonEnter.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Enter();
+				enter();
 			}
 		});
-		buttonenter.setBackground(new Color(51, 153, 51));
-		buttonenter.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		atmButtons.add(buttonenter);
+		buttonEnter.setBackground(new Color(51, 153, 51));
+		buttonEnter.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(buttonEnter);
 		
 		JLabel enter = new JLabel("ENTER");
-		buttonenter.add(enter);
+		buttonEnter.add(enter);
 		
-		JPanel b1 = new JPanel();
-		b1.setBackground(Color.LIGHT_GRAY);
-		b1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		atmButtons.add(b1);
+		/* 	Below Code creates ButtonTempOne which
+		 *  does nothing and used for Design Purpose.
+		 */
+		JPanel buttonTempOne = new JPanel();
+		buttonTempOne.setBackground(Color.LIGHT_GRAY);
+		buttonTempOne.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(buttonTempOne);
 		
-		JPanel button0 = new JPanel();
-		button0.addMouseListener(new MouseAdapter() {
+		/* 	Below Code creates ButtonZero which performs
+		 *  functionalites when mouse Clicks it.
+		 */
+		JPanel buttonZero = new JPanel();
+		buttonZero.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Zero();
+				if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")){
+					atmTextThree.setText(atmTextThree.getText()+"0");
+				}
 			}
 		});
-		button0.setBackground(Color.LIGHT_GRAY);
-		button0.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		atmButtons.add(button0);
+		buttonZero.setBackground(Color.LIGHT_GRAY);
+		buttonZero.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(buttonZero);
 		
 		JLabel num0 = new JLabel("0");
-		button0.add(num0);
+		buttonZero.add(num0);
 		
-		JPanel b2 = new JPanel();
-		b2.setBackground(Color.LIGHT_GRAY);
-		b2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		atmButtons.add(b2);
+		/* 	Below Code creates ButtonTempTwo which
+		 *  does nothing and used for Design Purpose.
+		 */
+		JPanel buttonTempTwo = new JPanel();
+		buttonTempTwo.setBackground(Color.LIGHT_GRAY);
+		buttonTempTwo.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(buttonTempTwo);
 		
-		JPanel b3 = new JPanel();
-		b3.setBackground(Color.LIGHT_GRAY);
-		b3.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
-		atmButtons.add(b3);
+		/* 	Below Code creates ButtonTempThree which
+		 *  does nothing and used for Design Purpose.
+		 */
+		JPanel buttonTempThree = new JPanel();
+		buttonTempThree.setBackground(Color.LIGHT_GRAY);
+		buttonTempThree.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.LIGHT_GRAY));
+		atmButtons.add(buttonTempThree);
 		
-		JPanel p_reciept = new JPanel();
-		p_reciept.setBounds(444, 42, 400, 310);
-		contentPane.add(p_reciept);
-		p_reciept.setLayout(null);
+		/* 	Below Code creates recieptPanel which
+		 *  contains TextArea and shows Reciept  
+		 *  Whenever Action is Done by user on ATM.
+		 */
+		JPanel recieptPanel = new JPanel();
+		recieptPanel.setBounds(444, 42, 400, 310);
+		contentPane.add(recieptPanel);
+		recieptPanel.setLayout(null);
 		
 		textReciept = new JTextArea("\n -------------------- RECIEPT ---------------------- \n -------------------------------------------------");
 		textReciept.setEditable(false);
 		textReciept.setBounds(0, 0, 400, 310);
-		p_reciept.add(textReciept);
+		recieptPanel.add(textReciept);
 		
+		/* 	Below Code creates hardware panel which
+		 * 	is a combinition of insertCardPanel,
+		 *  takeRecieptPanel and takeCashPanel
+		 */
 		JPanel hardware = new JPanel();
 		hardware.setBackground(new Color(51, 153, 204));
 		hardware.setBounds(444, 375, 400, 310);
 		contentPane.add(hardware);
 		hardware.setLayout(null);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.addMouseListener(new MouseAdapter() {
+		/* 	Below Code creates insertCardPanel which
+		 * 	contains label showing text "INSERT CARD"
+		 *  and cardSlot where card is Inserted.
+		 */
+		JPanel insertCardPanel = new JPanel();
+		insertCardPanel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
 					Inserted();
 				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
 		});
-		panel_1.setBackground(new Color(51, 153, 204));
-		panel_1.setBounds(88, 97, 90, 32);
-		hardware.add(panel_1);
-		panel_1.setLayout(null);
+		insertCardPanel.setBackground(new Color(51, 153, 204));
+		insertCardPanel.setBounds(88, 97, 90, 32);
+		hardware.add(insertCardPanel);
+		insertCardPanel.setLayout(null);
 		
-		JPanel card_slot = new JPanel();
-		card_slot.setBounds(12, 0, 60, 4);
-		panel_1.add(card_slot);
-		card_slot.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 0), new Color(255, 255, 255), null, null));
-		card_slot.setBackground(new Color(105, 105, 105));
+		JPanel cardSlot = new JPanel();
+		cardSlot.setBounds(12, 0, 60, 4);
+		insertCardPanel.add(cardSlot);
+		cardSlot.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 0), new Color(255, 255, 255), null, null));
+		cardSlot.setBackground(new Color(105, 105, 105));
 		
 		JLabel card = new JLabel("INSERT CARD");
 		card.setBounds(0, 16, 90, 16);
-		panel_1.add(card);
+		insertCardPanel.add(card);
 		card.setHorizontalAlignment(SwingConstants.CENTER);
 		card.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
 		
-		JPanel panel_4 = new JPanel();
-		panel_4.setBackground(new Color(51, 153, 204));
-		panel_4.setBounds(150, 190, 100, 48);
-		hardware.add(panel_4);
-		panel_4.setLayout(null);
+		/* 	Below Code creates takeCashPanel which
+		 * 	contains label showing text "TAKE CASH"
+		 *  and cashSlot and cashPanel from where cash gets collected.
+		 */
+		JPanel takeCashPanel = new JPanel();
+		takeCashPanel.setBackground(new Color(51, 153, 204));
+		takeCashPanel.setBounds(150, 190, 100, 48);
+		hardware.add(takeCashPanel);
+		takeCashPanel.setLayout(null);
 		
-		JPanel cash_panel = new JPanel();
-		cash_panel.addMouseListener(new MouseAdapter() {
+		JPanel cashPanel = new JPanel();
+		cashPanel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				AtmCreation a = new AtmCreation();
@@ -368,13 +472,13 @@ public class MainFrame extends JFrame {
 				RecieptCheck();
 			}
 		});
-		cash_panel.setBounds(0, 0, 100, 20);
-		panel_4.add(cash_panel);
-		cash_panel.setBackground(new Color(105, 105, 105));
-		cash_panel.setLayout(null);
+		cashPanel.setBounds(0, 0, 100, 20);
+		takeCashPanel.add(cashPanel);
+		cashPanel.setBackground(new Color(105, 105, 105));
+		cashPanel.setLayout(null);
 		
-		JPanel cash_slot = new JPanel();
-		cash_slot.addMouseListener(new MouseAdapter() {
+		JPanel cashSlot = new JPanel();
+		cashSlot.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				AtmCreation a = new AtmCreation();
@@ -382,106 +486,142 @@ public class MainFrame extends JFrame {
 				RecieptCheck();
 			}
 		});
-		cash_slot.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 0), new Color(255, 250, 250), null, null));
-		cash_slot.setBackground(new Color(105, 105, 105));
-		cash_slot.setBounds(6, 5, 88, 9);
-		cash_panel.add(cash_slot);
+		cashSlot.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 0), new Color(255, 250, 250), null, null));
+		cashSlot.setBackground(new Color(105, 105, 105));
+		cashSlot.setBounds(6, 5, 88, 9);
+		cashPanel.add(cashSlot);
 		
 		JLabel cash = new JLabel("TAKE CASH");
 		cash.setBackground(new Color(51, 153, 204));
 		cash.setBounds(0, 32, 100, 16);
-		panel_4.add(cash);
+		takeCashPanel.add(cash);
 		cash.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JPanel panel_3 = new JPanel();
-		panel_3.addMouseListener(new MouseAdapter() {
+		/* 	Below Code creates takRecieptPanel which
+		 * 	contains label showing text "TAKE RECIEPT"
+		 *  and recieptSlot from where reciept is shown.
+		 */
+		JPanel takeRecieptPanel = new JPanel();
+		takeRecieptPanel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				TakeReciept();
+				takeReciept();
 			}
 		});
-		panel_3.setBackground(new Color(51, 153, 204));
-		panel_3.setBounds(218, 97, 86, 32);
-		hardware.add(panel_3);
-		panel_3.setLayout(null);
+		takeRecieptPanel.setBackground(new Color(51, 153, 204));
+		takeRecieptPanel.setBounds(218, 97, 86, 32);
+		hardware.add(takeRecieptPanel);
+		takeRecieptPanel.setLayout(null);
 		
-		JPanel reciept_slot = new JPanel();
-		reciept_slot.setBounds(19, 0, 50, 4);
-		panel_3.add(reciept_slot);
-		reciept_slot.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 0), new Color(255, 255, 255), null, null));
-		reciept_slot.setBackground(new Color(105, 105, 105));
+		JPanel recieptSlot = new JPanel();
+		recieptSlot.setBounds(19, 0, 50, 4);
+		takeRecieptPanel.add(recieptSlot);
+		recieptSlot.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 0), new Color(255, 255, 255), null, null));
+		recieptSlot.setBackground(new Color(105, 105, 105));
 		
 		JLabel reciept = new JLabel("TAKE RECIEPT");
 		reciept.setBounds(0, 16, 86, 16);
-		panel_3.add(reciept);
+		takeRecieptPanel.add(reciept);
 		
-		JPanel p1 = new JPanel();
-		p1.setBackground(new Color(0, 102, 153));
-		p1.setBounds(358, 125, 45, 45);
-		contentPane.add(p1);
+		/* 	Below Code creates functionKeyOne which is 
+		 * 	used near and performs functionalities for 
+		 * 	atm screen as per screen shows input options.
+		 */
+		JPanel functionKeyOne = new JPanel();
+		functionKeyOne.setBackground(new Color(0, 102, 153));
+		functionKeyOne.setBounds(358, 125, 45, 45);
+		contentPane.add(functionKeyOne);
 		
-		JLabel label_10 = new JLabel("");
-		label_10.addMouseListener(new MouseAdapter() {
+		JLabel functionKeyOneText = new JLabel("");
+		functionKeyOneText.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(atmTextTwo.getText().equals("WITHDRAW CASH"))
-				{
-					Withdraw();
+				if(atmTextTwo.getText().equals("WITHDRAW CASH")) {
+					withdrawMoney();
 				}
 			}
 		});
-		label_10.setHorizontalAlignment(SwingConstants.LEFT);
-		label_10.setIcon(new ImageIcon(MainFrame.class.getResource("/img/arrow4.jpg")));
-		p1.add(label_10);
+		functionKeyOneText.setHorizontalAlignment(SwingConstants.LEFT);
+		functionKeyOneText.setIcon(new ImageIcon(MainFrame.class.getResource("/img/arrow4.jpg")));
+		functionKeyOne.add(functionKeyOneText);
 		
-		JPanel p2 = new JPanel();
-		p2.setBackground(new Color(0, 102, 153));
-		p2.setBounds(358, 219, 45, 45);
-		contentPane.add(p2);
+		/* 	Below Code creates functionKeyTwo which is 
+		 * 	used near and performs functionalities for 
+		 * 	atm screen as per screen shows input options.
+		 */
+		JPanel functionKeyTwo = new JPanel();
+		functionKeyTwo.setBackground(new Color(0, 102, 153));
+		functionKeyTwo.setBounds(358, 219, 45, 45);
+		contentPane.add(functionKeyTwo);
 		
-		JLabel label_11 = new JLabel("");
-		label_11.addMouseListener(new MouseAdapter() {
+		/* 	Below Code creates functionKeyTwo which is 
+		 * 	used near and performs functionalities for 
+		 * 	atm screen as per screen shows input options.
+		 */
+		JLabel functionKeyTwoText = new JLabel("");
+		functionKeyTwoText.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Cancel();
+				if(atmTextFour.getText().equals("LOG OUT")) {
+						atmTextOne.setBounds(73, 50, 142, 26);
+				atmTextOne.setText("WELCOME");
+				atmTextTwo.setText("TO");
+				atmTextTwo.setBounds(73, 77, 142, 26);
+				atmTextThree.setBounds(73, 104, 142, 26);
+				atmTextThree.setText("ATM SIMULATOR");
+				atmTextFour.setBounds(73, 132, 142, 26);
+				atmTextFour.setText("INSERT YOUR CARD");
+				textReciept.setText("\n -------------------- RECIEPT ---------------------- "
+						+ "\n -------------------------------------------------");
+				}
 			}
 		});
-		label_11.setHorizontalAlignment(SwingConstants.LEFT);
-		label_11.setIcon(new ImageIcon(MainFrame.class.getResource("/img/arrow4.jpg")));
-		p2.add(label_11);
+		functionKeyTwoText.setHorizontalAlignment(SwingConstants.LEFT);
+		functionKeyTwoText.setIcon(new ImageIcon(MainFrame.class.getResource("/img/arrow4.jpg")));
+		functionKeyTwo.add(functionKeyTwoText);
 		
-		JPanel p3 = new JPanel();
-		p3.setBackground(new Color(0, 102, 153));
-		p3.setBounds(32, 125, 45, 45);
-		contentPane.add(p3);
+		/* 	Below Code creates functionKeyThree which is 
+		 * 	used near and performs functionalities for 
+		 * 	atm screen as per screen shows input options.
+		 */
+		JPanel functionKeyThree = new JPanel();
+		functionKeyThree.setBackground(new Color(0, 102, 153));
+		functionKeyThree.setBounds(32, 125, 45, 45);
+		contentPane.add(functionKeyThree);
 		
-		JLabel label_12 = new JLabel("");
-		label_12.addMouseListener(new MouseAdapter() {
+		JLabel functionKeyThreeText = new JLabel("");
+		functionKeyThreeText.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				RecieptCheck();
 			}
 		});
-		label_12.setIcon(new ImageIcon(MainFrame.class.getResource("/img/arrow3.jpg")));
-		p3.add(label_12);
+		functionKeyThreeText.setIcon(new ImageIcon(MainFrame.class.getResource("/img/arrow3.jpg")));
+		functionKeyThree.add(functionKeyThreeText);
 		
-		JPanel p4 = new JPanel();
-		p4.setBackground(new Color(0, 102, 153));
-		p4.setBounds(32, 219, 45, 45);
-		contentPane.add(p4);
+		/* 	Below Code creates functionKeyFour which is 
+		 * 	used near and performs functionalities for 
+		 * 	atm screen as per screen shows input options.
+		 */
+		JPanel functionKeyFour = new JPanel();
+		functionKeyFour.setBackground(new Color(0, 102, 153));
+		functionKeyFour.setBounds(32, 219, 45, 45);
+		contentPane.add(functionKeyFour);
 		
-		JLabel label_13 = new JLabel("");
-		label_13.addMouseListener(new MouseAdapter() {
+		JLabel functionKeyFourText = new JLabel("");
+		functionKeyFourText.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ChangePin();
+				changePin();
 			}
+			
 		});
-		label_13.setBackground(new Color(0, 102, 153));
-		label_13.setIcon(new ImageIcon(MainFrame.class.getResource("/img/arrow3.jpg")));
-		p4.add(label_13);
+		functionKeyFourText.setBackground(new Color(0, 102, 153));
+		functionKeyFourText.setIcon(new ImageIcon(MainFrame.class.getResource("/img/arrow3.jpg")));
+		functionKeyFour.add(functionKeyFourText);
 	}
 	
+	// Below Code sets atm screen text after card is inserted
 	public void Inserted() throws InterruptedException {
 		if(atmTextFour.getText().equals("INSERT YOUR CARD")) {
 			atmTextOne.setText("");
@@ -491,12 +631,15 @@ public class MainFrame extends JFrame {
 		} else { System.out.println("error"); }
 	}
 	
+	/* 	Below Code checks atm screen and gives output
+	 *  on atm reciept as per need of user.
+	 */
 	public void RecieptCheck() {
 		if(atmTextOne.getText().equals("CHECK BALANCE")) {
 			atmTextOne.setBounds(73, 50, 142, 26);
 			atmTextOne.setText("TO CHECK YOUR");
-			atmTextTwo.setText("BALANCE TAKE");
 			atmTextTwo.setBounds(73, 77, 142, 26);
+			atmTextTwo.setText("BALANCE TAKE");
 			atmTextThree.setBounds(73, 104, 142, 26);
 			atmTextThree.setText("YOUR RECIEPT");
 			atmTextFour.setBounds(73, 132, 142, 26);
@@ -506,8 +649,8 @@ public class MainFrame extends JFrame {
 		if(atmTextTwo.getText().equals("TAKE YOUR")) {
 			atmTextOne.setBounds(73, 50, 142, 26);
 			atmTextOne.setText("YOUR BALANCE");
-			atmTextTwo.setText("IS UPDATED");
 			atmTextTwo.setBounds(73, 77, 142, 26);
+			atmTextTwo.setText("IS UPDATED");
 			atmTextThree.setBounds(73, 104, 142, 26);
 			atmTextThree.setText("CHECK RECIEPT");
 			atmTextFour.setBounds(73, 132, 142, 26);
@@ -515,11 +658,19 @@ public class MainFrame extends JFrame {
 		}
 	}
 	
-	public void Enter() {
+	/*	Below Code is triggered When enterButton
+	 * 	is pressed and it performs functions based
+	 * 	on current state of the program
+	 */
+	public void enter() {
 		AtmCreation a = new AtmCreation();
-		
+		/*	Below Code is triggered When enterButton
+		 * 	is pressed and it replaces old pin with 
+		 * 	new pin of the card.
+		 */
 		if(atmTextTwo.getText().equals("ENTER NEW PIN")) {
 			temp3 = atmTextThree.getText();
+
 			if(a.pinNumber.equals(temp3)) {
 				atmTextOne.setText("YOU HAVE");
 				atmTextTwo.setText("ENTERED OLD PIN");
@@ -533,15 +684,18 @@ public class MainFrame extends JFrame {
 				atmTextThree.setText("SUCCESSFULLY");
 				atmTextFour.setText("THANK YOU");
 			} 
-			else { System.out.println("Error"); }
 		}
 		
-		if(atmTextTwo.getText().equals("ENTER YOUR PIN")) 
-		{	
+		/*	Below Code is triggered When enterButton
+		 * 	is pressed and it checks entered pin with 
+		 * 	pin of the card and gives access to atm.
+		 */
+		if(atmTextTwo.getText().equals("ENTER YOUR PIN")) {	
 			temp2 = atmTextThree.getText();
 			if(a.pinNumber.equals(temp2)) {
-				CorrectPin();
-			} else {
+				correctPin();
+			} 
+			else {
 				atmTextOne.setText("YOU'VE ENTERED");
 				atmTextTwo.setText("INCORRECT");
 				atmTextThree.setText("PIN RETURNING");
@@ -549,11 +703,19 @@ public class MainFrame extends JFrame {
 			}
 		}
 		
+		/*	Below Code is triggered When enterButton
+		 * 	is pressed and it is used to Withdraw Money
+		 *  from atm as per user Input amount.
+		 */
 		if(atmTextTwo.getText().equals("ENTER AMOUNT")) {
 			temp = Integer.parseInt(atmTextThree.getText());
+			//	Below Code checks whether Entered amount is less than 100
 			if(Integer.parseInt(atmTextThree.getText()) > 99) {
+				//	Below Code checks whether Entered amount is less than user's balance
 				if(Integer.parseInt(atmTextThree.getText()) <= a.cash) {
+					//	Below Code checks whether Entered amount is in times of 100
 					if(Integer.parseInt(atmTextThree.getText()) % 100 == 0) {	
+						
 						atmTextOne.setText("THANK YOU");
 						atmTextOne.setBounds(73, 50, 142, 26);
 						atmTextTwo.setText("TAKE YOUR");
@@ -562,19 +724,22 @@ public class MainFrame extends JFrame {
 						atmTextThree.setBounds(73, 104, 142, 26);
 						atmTextFour.setText("BELOW");
 						atmTextFour.setBounds(73, 132, 142, 26);
-					} else {
+					} 
+					else {
 						atmTextOne.setText("THIS ATM");
 						atmTextTwo.setText("ONLY SUPPORTS");
 						atmTextThree.setText("AMMOUNT MULTIPLE");
 						atmTextFour.setText("OF 100S"); 
 					}
-				} else {
+				} 
+				else {
 					atmTextOne.setText("AMOUNT ENTERED");
 					atmTextTwo.setText("IS GREATER");
 					atmTextThree.setText("THAN AMOUNT");
 					atmTextFour.setText("IN ACCOUNT");
 				}
-			} else {
+			} 
+			else {
 				atmTextOne.setText("YOU HAVE ENTERED"); 
 				atmTextTwo.setText("WRONG AMOUNT");
 				atmTextThree.setText("RETURNING"); 
@@ -583,100 +748,31 @@ public class MainFrame extends JFrame {
 		}
 	}
 	
-	public void CorrectPin()
-	{
+	public void correctPin() {
+		/*	Below Code is triggered When enterButton
+		 * 	is pressed and Entered pin gets matched
+		 * 	with pin of the card.
+		 */
 		atmTextOne.setBounds(0, 45, 142, 26);
 		atmTextOne.setText("CHECK BALANCE");
 		
 		atmTextTwo.setBounds(143, 44, 142, 26);
 		atmTextTwo.setText("WITHDRAW CASH");
 		
-		atmTextThree.setText("CHANGE PIN");
 		atmTextThree.setBounds(0, 138, 142, 26);
+		atmTextThree.setText("CHANGE PIN");
 		atmTextThree.setEditable(false);
 		
-		atmTextFour.setText("LOG OUT");
 		atmTextFour.setBounds(143, 138, 142, 26);
+		atmTextFour.setText("LOG OUT");
 	}
-			
-	public void One() {
-		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")) {
-			atmTextThree.setText(atmTextThree.getText()+"1");
-		}
-	}
+
 	
-	public void Two() {
-		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")) {
-			atmTextThree.setText(atmTextThree.getText()+"2");
-		}
-	}
-	
-	public void Three() {
-		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")) {
-			atmTextThree.setText(atmTextThree.getText()+"3");
-		}
-	}
-	
-	public void Four() {
-		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")) {
-			atmTextThree.setText(atmTextThree.getText()+"4");
-		}	
-	}
-	
-	public void Five() {
-		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")) {
-			atmTextThree.setText(atmTextThree.getText()+"5");
-		}	
-	}
-	
-	public void Six() {
-		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN")) {
-			atmTextThree.setText(atmTextThree.getText()+"6");
-		}
-	}
-	
-	public void Seven() 
-	{
-		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN"))
-		{
-			atmTextThree.setText(atmTextThree.getText()+"7");
-		}
-	}
-	
-	public void Eight() 
-	{
-		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN"))
-		{
-			atmTextThree.setText(atmTextThree.getText()+"8");
-		}
-	}
-	
-	public void Nine() 
-	{
-		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN"))
-		{
-			atmTextThree.setText(atmTextThree.getText()+"9");
-		}
-	}
-	
-	public void Zero() 
-	{
-		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN"))
-		{
-			atmTextThree.setText(atmTextThree.getText()+"0");
-		}
-	}
-	
-	public void Clear() 
-	{
-		
-		if(atmTextTwo.getText().equals("ENTER YOUR PIN")||atmTextTwo.getText().equals("ENTER AMOUNT")||atmTextTwo.getText().equals("ENTER NEW PIN"))
-		{
-			atmTextThree.setText(atmTextThree.getText().substring(0, atmTextThree.getText().length()-1));
-		}
-	}
-	
-	public void Withdraw() {
+	public void withdrawMoney() {
+		/*	Below Code is triggered When functionKey
+		 * 	is pressed and it checks whether balance 
+		 * 	of the card holder is greater than 100 or not.
+		 */
 		AtmCreation a = new AtmCreation();
 		if(a.cash > 99) {
 			atmTextOne.setText("");
@@ -691,22 +787,9 @@ public class MainFrame extends JFrame {
 		else { System.out.println("ERROR");}
 	}
 	
-	//Below Code Resets ATM To Initialize
-	public void Cancel() {
-		atmTextOne.setBounds(73, 50, 142, 26);
-		atmTextOne.setText("WELCOME");
-		atmTextTwo.setText("TO");
-		atmTextTwo.setBounds(73, 77, 142, 26);
-		atmTextThree.setBounds(73, 104, 142, 26);
-		atmTextThree.setText("ATM SIMULATOR");
-		atmTextFour.setBounds(73, 132, 142, 26);
-		atmTextFour.setText("INSERT YOUR CARD");
-		textReciept.setText("\n -------------------- RECIEPT ---------------------- "
-				+ "\n -------------------------------------------------");
-	}
 	
 	//	Below Code Generates Reciept
-	public void TakeReciept() {
+	public void takeReciept() {
 		AtmCreation a = new AtmCreation();
 		
 		//	Code to Generate Reciept for Checking Balance
@@ -739,8 +822,8 @@ public class MainFrame extends JFrame {
 		}
 	}
 	 
-	//	Below Code to Changes Pin
-	public void ChangePin() {
+	//	Below Code to make atmScreen UI changed for Pin Change Environment
+	public void changePin() {
 		if(atmTextThree.getText().equals("CHANGE PIN")) {
 			atmTextOne.setText("");
 			atmTextOne.setBounds(73, 50, 142, 26);

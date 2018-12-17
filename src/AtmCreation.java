@@ -53,6 +53,7 @@ public class AtmCreation extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setTitle("ATM SIMULATOR");
 		
 		// Below Code is of Main Panel 
 		JPanel mainPanel = new JPanel();
